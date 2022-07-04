@@ -1,6 +1,10 @@
 import React,  {useState} from 'react'
 import styled from 'styled-components'
 import BurguerBoton from './BurguerBoton'
+import CartWidget from './CartWidget';
+
+
+
 
 function Navbar() {
     const [clicked, setClicked] = useState(false)
@@ -20,22 +24,23 @@ setClicked(!clicked)
 <BurguerBoton clicked= {clicked} handleClick={handleClick}/>
 </div>
 <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+<CartWidget/>
 </NavContainer>
  </>
-    )
+  )
 }
 export default Navbar
 
 const NavContainer = styled.nav `
 h2{
-    color: white;
+    color: black;
     font-weight: 400;
     span{
       font-weight: bold;
     }
   }
   padding: .4rem;
-  background-color: #333;
+  background-color: darksalmon;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -92,7 +97,12 @@ h2{
       display: none;
     }
   }
-`
+  
+  .button {
+  font-size: 2rem;
+  }
+
+  `
 
 const BgDiv = styled.div`
   background-color: #222;
