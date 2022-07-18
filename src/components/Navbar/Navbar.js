@@ -1,29 +1,20 @@
-import React,  {useState} from 'react'
-import styled from 'styled-components'
-import BurguerBoton from './BurguerBoton'
+import styled from 'styled-components';
 import CartWidget from './CartWidget';
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+
 
 
 
 
 function Navbar() {
-    const [clicked, setClicked] = useState(false)
-    const handleClick = () => {
-setClicked(!clicked)
-    }
     return (
  <>
  <NavContainer>
-     <h2>Ecommerce <span>ETCHEVERRY</span></h2>
- <div className={`links ${clicked ? 'active' : '' } `}>
-     <a onClick={handleClick} href="/">Inicio</a>
-     <a onClick={handleClick} href="/">Productos</a>
-     <a onClick={handleClick} href="/">Contacto</a>
- </div>
- <div className='burguer'>
-<BurguerBoton clicked= {clicked} handleClick={handleClick}/>
-</div>
-<BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
+     <Link to="/">Ecommerce <span>ETCHEVERRY</span></Link>
+     <Link  to="/categorias/remeras">Remeras</Link>
+     <Link  to="/categorias/pantalon">Pantalon</Link>
+     <Link  to="/categorias/Camperas">Camperas</Link>
 <CartWidget/>
 </NavContainer>
  </>
@@ -92,33 +83,9 @@ h2{
     }
 }
 
-  .burguer{
-    @media(min-width: 768px){
-      display: none;
-    }
-  }
   
   .button {
   font-size: 2rem;
   }
 
   `
-
-const BgDiv = styled.div`
-  background-color: #222;
-  position: absolute;
-  top: -1000px;
-  left: -1000px;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  transition: all .6s ease ;
-  
-  &.active{
-    border-radius: 0 0 80% 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-`
