@@ -14,7 +14,7 @@ function Navbar() {
      <Link to="/">Ecommerce <span>ETCHEVERRY</span></Link>
      <Link  to="/categorias/remeras">Remeras</Link>
      <Link  to="/categorias/pantalon">Pantalon</Link>
-     <Link  to="/categorias/Camperas">Camperas</Link>
+     <Link  to="/categorias/camperas">Camperas</Link>
 <CartWidget/>
 </NavContainer>
  </>

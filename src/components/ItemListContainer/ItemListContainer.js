@@ -13,7 +13,7 @@ const ItemListContainer = () => {
   const traerProd = () => {
     return new Promise((res) => {
             setTimeout(() => {
-                res(categoria ? products.filter(prod => prod.categoria === categoria) : products)
+                res(categoria ? products.filter(prod => prod.category === categoria) : products)
             }, 2000)
           })
         }
