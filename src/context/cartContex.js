@@ -4,12 +4,13 @@ export const cartContext = createContext()
 
 const Provider = (props) => {
     const [cart, setCart] = useState([])
-    const [suma, setSuma] = useState(0)
 
     const totalCarrito = () => {
         let total = 0; 
-        cart.forEach(item => total += (item.price * item.cantidad))
-        setSuma(suma)
+        cart.forEach(item =>{
+            total += item.price * item.cantidad
+        });
+        return total; 
     }
 
     useEffect(()=> {
