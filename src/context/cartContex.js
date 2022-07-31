@@ -13,6 +13,8 @@ const Provider = (props) => {
         return total; 
     }
 
+    const totalProductos = () => cart.reduce ((acumulador, productoActual) => acumulador + productoActual.cantidad, 0 )
+
     useEffect(()=> {
         console.log(cart);
     }, [cart]);
@@ -40,7 +42,7 @@ const Provider = (props) => {
     };
 
     return(
-        <cartContext.Provider value= {{ cart, añadirAlCarrito, eliminarTodo, eliminarUno,totalCarrito  }}>
+        <cartContext.Provider value= {{ cart, añadirAlCarrito, eliminarTodo, eliminarUno,totalCarrito, totalProductos  }}>
             {props.children}
         </cartContext.Provider>
     )

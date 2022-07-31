@@ -26,7 +26,6 @@ const Cart = () => {
                     <img src={prod.img} width="70px" alt={prod.name} />
                     <div>
                         <h2>{prod.name}</h2>
-            |           <hr></hr>
                         <h2>${prod.price}</h2>
 
                     </div>
