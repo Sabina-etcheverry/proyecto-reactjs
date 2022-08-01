@@ -1,25 +1,20 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
-import products from "../../mock/products"
-import { useParams } from "react-router-dom"
+// import products from "../../mock/products"
+import { useParams } from "react-router-dom";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState({})
-    const { id } = useParams();
-  
-    const traerProdPorId = () => {
-      return new Promise((res)=>{
-        setTimeout(()=>{
-          res(products.find(prod => prod.id === id))
-        }, 2000)
-      })
-}
+    
+  const [item, setItem] = useState({})
+  const { detalleId } = useParams();
   
     useEffect(()=>{
-      traerProdPorId().then(res=>{
-        setItem(res)
-      })
-    }, [id])
+        const querydb = getFirestore();
+        const queryDoc = doc(querydb, 'productos', 'detalleId');
+        getDoc(queryDoc)
+        .then(res => setItem({id: res.id, ...res.item()})) 
+      }, [detalleId])
   
   
     return (

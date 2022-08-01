@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { cartContext } from '../../context/cartContex';
+import { cartContext } from '../../context/cartContext';
 
 const Cart = () => {
 
-    const { cart, eliminarTodo, eliminarUno , totalCarrito } = useContext(cartContext);
+    const { cart, deleteAll, deleteOne , totalCart } = useContext(cartContext);
     if (cart.length === 0) {
         return (
             <h2>
@@ -29,11 +29,11 @@ const Cart = () => {
                         <h2>${prod.price}</h2>
 
                     </div>
-                    <button onClick={() => eliminarUno(prod.id)}>Eliminar</button>
+                    <button onClick={() => deleteOne(prod.id)}>Eliminar</button>
                 </div>
             ))}
-            <button onClick={eliminarTodo}>Eliminar todos los productos</button>
-            <h3>{`Total: $${totalCarrito()}`}</h3>
+            <button onClick={deleteAll}>Eliminar todos los productos</button>
+            <h3>{`Total: $${totalCart()}`}</h3>
         </div>
     );
 };

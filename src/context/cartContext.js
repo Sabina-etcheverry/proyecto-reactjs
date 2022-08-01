@@ -5,7 +5,7 @@ export const cartContext = createContext()
 const Provider = (props) => {
     const [cart, setCart] = useState([])
 
-    const totalCarrito = () => {
+    const totalCart = () => {
         let total = 0; 
         cart.forEach(item =>{
             total += item.price * item.cantidad
@@ -13,13 +13,13 @@ const Provider = (props) => {
         return total; 
     }
 
-    const totalProductos = () => cart.reduce ((acumulador, productoActual) => acumulador + productoActual.cantidad, 0 )
+    const totalProducts = () => cart.reduce ((acumulador, productoActual) => acumulador + productoActual.cantidad, 0 )
 
     useEffect(()=> {
         console.log(cart);
     }, [cart]);
 
-    const añadirAlCarrito = (item, cantidad) => {
+    const addToCart = (item, cantidad) => {
 
         if (isInCart(item.id)) {
            setCart(cart.map(prod => {
@@ -35,14 +35,14 @@ const Provider = (props) => {
         return cart.find (prod => prod.id === id) ? true : false 
     }
 
-    const eliminarUno = (id) => setCart (cart.filter(prod => prod.id !== id));
+    const deleteOne = (id) => setCart (cart.filter(prod => prod.id !== id));
 
-    const eliminarTodo = () => {
+    const deleteAll = () => {
         setCart([]);
     };
 
     return(
-        <cartContext.Provider value= {{ cart, añadirAlCarrito, eliminarTodo, eliminarUno,totalCarrito, totalProductos  }}>
+        <cartContext.Provider value= {{ cart, addToCart, deleteAll, deleteOne ,totalCart, totalProducts  }}>
             {props.children}
         </cartContext.Provider>
     )
