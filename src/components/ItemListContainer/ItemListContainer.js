@@ -30,6 +30,7 @@ const ItemListContainer = () => {
               getDocs(queryCollection)
               .then(res => setItems(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
             }
+            console.log(query);
           }, [categoria] )
 
 
