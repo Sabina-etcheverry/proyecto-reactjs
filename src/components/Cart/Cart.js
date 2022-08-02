@@ -1,10 +1,31 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../../context/cartContext';
+import { addDoc, collection, getFirestore } from 'firebase/firestore'
 
 const Cart = () => {
 
     const { cart, deleteAll, deleteOne , totalCart } = useContext(cartContext);
+
+    const order = {
+        buyer: {
+            name: 'Sabina',
+            email: 'sabina@gmail.com',
+            phone: '2233'
+        },
+
+        items: cart.map(product => ({id: product.id, name: product.name, price: product.price, cantidad: product.cantidad})),
+        total: totalCart(),
+    }
+
+    const handleClick = () => {
+        const db = getFirestore();
+        const ordersCollection = collection(db, 'orders');
+        addDoc(ordersCollection, order)
+        .then(({ id }) => console.log(id));
+    }
+
+    
     if (cart.length === 0) {
         return (
             <h2>
@@ -34,7 +55,9 @@ const Cart = () => {
             ))}
             <button onClick={deleteAll}>Eliminar todos los productos</button>
             <h3>{`Total: $${totalCart()}`}</h3>
+            <button onClick={handleClick}>Generar compra </button>
         </div>
+    
     );
 };
 
