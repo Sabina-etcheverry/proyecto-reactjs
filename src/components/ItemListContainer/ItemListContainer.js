@@ -19,19 +19,35 @@ const ItemListContainer = () => {
   //       }
 
 
-          useEffect(()=>{
-            const querydb = getFirestore();
-            const queryCollection = collection(querydb, 'products');
-            if (categoria) {
-              const queryFilter = query(queryCollection, where('category', '==', categoria))
-              getDocs(queryFilter)
-              .then(res => setItems(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
-            } else {
-              getDocs(queryCollection)
-              .then(res => setItems(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
-            }
-            console.log(query);
-          }, [categoria] )
+  useEffect(() => {
+
+    const getItems = async () => {
+
+      if (categoria !== undefined) {
+        const querydb = getFirestore();
+        const q = query(collection(querydb, 'products'), where('category', '==', categoria))
+        await getDocs(q).then((res) => {
+          const data = res.docs.map(prod => ({ id: prod.id, ...prod.data() }))
+
+          setItems(data)
+        })
+      } else {
+
+        const querydb = getFirestore();
+        const q = (collection(querydb, 'products'))
+        await getDocs(q).then((res) => {
+          const data = res.docs.map(prod => ({ id: prod.id, ...prod.data() }))
+
+          setItems(data)
+        })
+      }
+    }
+
+
+    getItems();
+
+  }, [categoria])
+         
 
 
 return (
