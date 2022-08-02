@@ -7,52 +7,25 @@ import { getFirestore, collection, getDocs, query, where } from "firebase/firest
 
 const ItemListContainer = () => {
 
-  const [items, setItems] = useState([]);
+  const [data, setData] = useState([]);
   const { categoria } = useParams()
-    
-  // const traerProd = () => {
-  //   return new Promise((res) => {
-  //           setTimeout(() => {
-  //               res(categoria ? products.filter(prod => prod.category === categoria) : products)
-  //           }, 1000)
-  //         })
-  //       }
 
-
-  useEffect(() => {
-
-    const getItems = async () => {
-
-      if (categoria !== undefined) {
-        const querydb = getFirestore();
-        const q = query(collection(querydb, 'products'), where('category', '==', categoria))
-        await getDocs(q).then((res) => {
-          const data = res.docs.map(prod => ({ id: prod.id, ...prod.data() }))
-
-          setItems(data)
-        })
-      } else {
-
-        const querydb = getFirestore();
-        const q = (collection(querydb, 'products'))
-        await getDocs(q).then((res) => {
-          const data = res.docs.map(prod => ({ id: prod.id, ...prod.data() }))
-
-          setItems(data)
-        })
-      }
-    }
-
-
-    getItems();
-
-  }, [categoria])
-         
-
+useEffect(() => {
+  const querydb = getFirestore();
+  const queryCollection = collection(querydb, 'products');
+  if (categoria) {
+    const queryFilter = query(queryCollection, where('category', '==', categoria)) 
+    getDocs(queryFilter)
+    .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data()}))))
+  } else {
+    getDocs(queryCollection)
+    .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data()}))))
+  }
+}, [categoria])
 
 return (
     <div>
-        <ItemList items={items}/>
+        <ItemList items={data}/>
     </div>
   )
 }
