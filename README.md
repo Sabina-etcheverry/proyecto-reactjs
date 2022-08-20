@@ -88,7 +88,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## ¿Cómo comprar? 📄
 
-<p> <img src="Ecommerce-Etcheverry.gif" display="flex" width="500px" height="320" align="center" />
+<p> <img src="Ecommerce-Etcheverry.gif" display="flex" width="100%" height="320" align="center" />
 
 Sigue las instrucciones de este video para comprar en la tienda:
 [Ecommerce-Etcheverry.gif](Ecommerce-Etcheverry.gif)
