@@ -1,7 +1,6 @@
 .itemList{
     display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
+	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: baseline;
     margin-top: 40px;

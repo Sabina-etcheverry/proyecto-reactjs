@@ -2,15 +2,21 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import "./Item.css";
 
-const Item = ({ name, img, id }) => {
+const Item = ({ name, img, id, description }) => {
+
     return (
-        <div className="card-container">
-            <div className="img-container">
-            <img src={img} alt={name} className="img-item"/>
-            </div>
-            <h3 className="">{name}</h3>
-            <Link to={`/item/${id}`}><button> VER DETALLE</button></Link>
-        </div>
+    <div className="item">
+      <img className="item-img" src={img} alt={name} />
+      <div>
+        <h2 className="item-title">{name}</h2>
+        <p className='item-description'>{description}</p>
+      </div>
+      <div>
+        <Link to={`/item/${id}`}>
+          <button className="item-btn">VER DETALLE</button>
+        </Link>
+      </div>
+    </div>
   );
 };
 

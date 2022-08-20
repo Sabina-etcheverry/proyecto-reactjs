@@ -1,37 +1,121 @@
+.container {
+    min-height: 90vh;
+  }
+
 .itemDetail {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    flex-wrap: nowrap;
     align-content: center;
-    
-    width: 100%;
-    margin-top: 60px;
-  }
-  
-  .img-detail-cont {
-    height: 600px;
-    width: 700px;
-    
-  }
-  
-  .img-detail {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 1px 1px 10px rgb(34, 34, 34);
-  }
-  
-  .text-container {
-    width: 30%;
-    display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    border: 1px solid #333;
   }
   
-  .titulo-container{
-    width: 100%;
+.itemDetail-imagen {
+    width: 400px;
+    margin: 10px;
+  }
+  
+.itemDetail-img {
+    width: 400px;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgb(0 0 0 / 50%);
+    object-fit: cover;
+  }
+  
+.itemDetail-cuerpo {
+    height: 500px;
     display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 20px;
+  }
+  
+.itemDetail-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+  }
+  
+.itemDetail-description {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+.itemDetail-btn {
+    background-color: darksalmon;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    box-shadow: 0 0 8px rgb(0 0 0 / 50%);
+    margin-top: 20px;
+  }
+  
+@media (max-width: 768px) {
+    .ItemDetailContainer {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+    }
+  
+.itemDetail {
+      display: flex;
       flex-direction: column;
+      margin: 10px;
+    }
+  
+.itemDetail-imagen {
+      width: 150px;
+    }
+  
+.itemDetail-img {
+      width: 150px;
+      height: 100%;
+    }
+  
+.itemDetail-cuerpo {
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-around;
+      align-items: flex-start;
+      margin: 0 20px;
+    }
+  
+.itemDetail-title {
+      font-size: 1.5rem;
+    }
+  
+.itemDetail-description {
+      font-size: 1rem;
+    }
+  
+.intro {
+      color: darksalmon;
+      font-size: 1.2rem;
+    }
+  
+.itemDetail-btn {
+      background-color: #9e0cd1;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 400;
+      text-decoration: none;
+      box-shadow: 0 0 8px rgb(0 0 0 / 50%);
+      margin-top: 10px;
+    }
   }

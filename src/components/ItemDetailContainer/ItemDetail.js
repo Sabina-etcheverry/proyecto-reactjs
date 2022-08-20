@@ -14,29 +14,35 @@ const { addToCart } = useContext (cartContext)
     setCantidad(cantidad)
     addToCart(item, cantidad)
   }
-
+  
   return (
-    <div className="itemDetail">
-      <div className="img-detail-cont">
-        <img src={img} alt="" className="img-detail" />
-      </div>
-      <div className="text-container">
-        <div className="titulo-container">
-            <h1>{name}</h1>
-            <h3 style={{color: "black"}}>${price}</h3>
-        </div>
-        
-        <p>
-          {description}
-        </p>
-        {cantidad === 0
-        ? <ItemCount stock={stock} precio={price} onAdd={onAdd} initial={1}/>
-        : <Link to="/cart">Ir a mi carrito</Link>
-        }
-        
-        
-      </div>
+
+  <div className="itemDetail container">
+    <div className="itemDetail-imagen">
+      <img className="itemDetail-img" src={img} alt={name} />
     </div>
-  );
+    <div className="itemDetail-cuerpo">
+      <h2 className="itemDetail-title">{name}</h2>
+      <p className="itemDetail-description">{description}</p>
+      <p className="itemDetail-description">
+        Stock: {stock}
+      </p>
+      <p className="itemDetail-description">Precio: ${price}</p>
+
+      {cantidad === 0 ? (
+        <ItemCount
+          stock={stock}
+          initial={1}
+          precio={price}
+          onAdd={onAdd}
+        />
+      ) : (
+        <Link to="/cart">
+          <button className="itemDetail-btn">Ir al Carrito</button>
+        </Link>
+      )}
+    </div>
+  </div>
+);
 }
 export default ItemDetail
