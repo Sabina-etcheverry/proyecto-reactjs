@@ -69,7 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### Código 🔧
+### Código Utilizado 🔧
 
 * HTML
 * CSS
@@ -80,15 +80,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 * sweetalert
 * react-router-dom
-* react-hook-form
+* react-hook
 
 ## Autor ✒️
 
-* **Sabina Etcheverry** - *Desarrollo completo* - [SabinaEtcheverry](https://www.linkedin.com/in/sabina-etcheverry-64038020a/)
+* **Sabina Etcheverry** - *Desarrollo completo* - [Sabina Etcheverry](https://www.linkedin.com/in/sabina-etcheverry-64038020a/)
 
 ## ¿Cómo comprar? 📄
 
-<p> <img src="Ecommerce-Etcheverry.gif" display="flex" width="100%" height="320" align="center" />
+<p> <img src="Ecommerce-Etcheverry.gif" display="flex" width="100%" height="450" align="center" />
 
 Sigue las instrucciones de este video para comprar en la tienda:
 [Ecommerce-Etcheverry.gif](Ecommerce-Etcheverry.gif)
