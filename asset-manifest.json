@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Sabina-etcheverry/proyecto-reactjs/static/css/main.ed9d7f98.css",
+    "main.js": "/Sabina-etcheverry/proyecto-reactjs/static/js/main.a4008e05.js",
+    "static/js/787.d04a4f3d.chunk.js": "/Sabina-etcheverry/proyecto-reactjs/static/js/787.d04a4f3d.chunk.js",
+    "index.html": "/Sabina-etcheverry/proyecto-reactjs/index.html",
+    "main.ed9d7f98.css.map": "/Sabina-etcheverry/proyecto-reactjs/static/css/main.ed9d7f98.css.map",
+    "main.a4008e05.js.map": "/Sabina-etcheverry/proyecto-reactjs/static/js/main.a4008e05.js.map",
+    "787.d04a4f3d.chunk.js.map": "/Sabina-etcheverry/proyecto-reactjs/static/js/787.d04a4f3d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed9d7f98.css",
+    "static/js/main.a4008e05.js"
+  ]
+}
